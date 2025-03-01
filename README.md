@@ -17,7 +17,7 @@ This file is crucial for handling HTTP requests and managing tasks. Here's a bre
 
 - `PostMapping("/add")`
   - This annotation is used to handle **HTTP POST** requests, often done through submitting data to the server (such as a form submission). In this case, it can be imagined as filling out a task form and submitting it to the server to add it.
-  - The `/add` URL is specified in an HTML form's `action` attribute and its method would be a `POST`. *Below is an HTML form*:
+  - The `/add` URL is specified in an HTML form's `action` attribute and specifies that it is a `POST` request. *Below is an HTML form*:
   ```html
   <form action="/add" method="POST">
   ``` 
