@@ -1,9 +1,7 @@
-# Task.java
-This class is just there to hold each individual "Task" element. It has 
-`description` and `completed` of the datatypes `String` and `boolean`. 
+# Springbok Application and Notes
+This repository serves as a learning resource for me to enhance my comprehension of the course `PROG27545 Web Application Design & Implementation`, which covers approximately weeks 1-7 (inclusive).
 
-# TaskController.java
-This file is crucial for handling HTTP requests and managing tasks. Here's a breakdown of the concepts:
+The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes examples that refer to the project for a better understanding. 
 
 ## Annotations:
 - `@Controller`
@@ -22,6 +20,9 @@ This file is crucial for handling HTTP requests and managing tasks. Here's a bre
   <form action="/add" method="POST">
   ``` 
   - The method under the mapping also returns the `"redirect:/"` which simply redirects the user back to the main page to display the updated list.
+
+These annotations are implemented in the 
+`TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
 
 ## Return Statements in Annotations
 Under `@GetMapping` and `@PostMapping`, there are methods that eventually return something. 
@@ -46,4 +47,7 @@ public String addTask(...)
   return "redirect:/"; 
 }
 ```
-Although similar to the previous return statement, this tells Spring to **redirect** instead of rendering a page. In this case, it redirects to the default URL. In this case, it after the redirect, it will then be handled by the previous method under `@GetMapping("/")`.
+Although similar to the previous return statement, this tells Spring to **redirect** instead of rendering a page. In this case, it redirects to the default URL. After the redirect, it will then be handled by the previous method under `@GetMapping("/")`.
+
+These return statements are implemented in the 
+`TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
