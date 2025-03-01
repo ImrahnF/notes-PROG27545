@@ -64,12 +64,12 @@ The data we are working with is sent through sessions using the `HttpSession` in
 
 An **example:**
 ```java
-// Save tasks to session
-session.setAttribute("tasks", taskList);
-// Retrieve tasks from session
-List<Task> updatedTasks = (List<Task>) session.getAttribute("tasks");
+// Save list of student names (Strings) to session
+session.setAttribute("Students", studentList);
+// Retrieve students from session
+List<String> updatedStudentList = (List<String>) session.getAttribute("Students");
 ```
-This example shows us setting a list of tasks (`taskList`) to the `"tasks"` attribute in the session which. It then creates a new `updatedTasks` list and populates it with what we just populated the `tasks` attribute with.
+This example shows us setting a list of student strings (`studentList`) to the `"Students"` attribute in the session which. It then creates a new `updatedStudentsList` list and populates it with what we just populated the `Students` attribute with.
 
 ### How is this different from models?
 The difference between a **Session** and **Model** is the fact that a **Model** is used for temporary data that is passed from the controller to a view (i.e. a web page) that will *only* be used to display data.
