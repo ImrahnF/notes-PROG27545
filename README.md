@@ -99,7 +99,11 @@ This HTML form does a **POST** request to the URL `localhost:8080/test`.
     <button type="submit">Submit</button>
 </form>
 ```
+The input field has a `name="data"` attribute. When the form is submitted, the text in the input field will be sent with the key `data`. 
+
 When the form is submitted, it should run the `processForm()` method under the `PostMapping("/test")` annotation as we are doing a **POST** request. The method under `@GetMapping` would run if we were to click a link that brought us to `localhost:8080/test` or if we were to directly type out the URL.
+
+The **POST** request would look something like this: `data=enteredValue`.
 ```java
 @Controller
 public class TestController {
@@ -118,3 +122,4 @@ public class TestController {
     }
 }
 ```
+The `@RequestParam` annotation looks for a request parameter named `data` which matches the form's `name="data"`. This is passed as the `data` argument in the `processForm()` method which then can be used as needed.
