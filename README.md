@@ -79,5 +79,42 @@ A **Session**, as mentioned, is used to store data that needs to persist across 
 **Conclusion:** While models are usually for temporary data (one-time requests), sessions are used to store data across the entire user's interaction with the app. The session data can be updated and accessed at any point during the user’s session.
 
 ## HTTP Request Types
+- **GET Request**:
+  - A **GET** request is triggered when a user visits a URL by typing it out or clicking a link that directs them to it. This doesn't change any server data.
+- **POST Request:**
+  - A **POST** request is triggered by sending data directly to the server, specifying that it is a **POST** request (not through URLs). This is done through ways such as submitting an HTML form and specifying what method:
+  ```html
+  <form action="/add" method="POST">
+  ``` 
 
-## GET and POST on Same URL?
+### What if there is a GET and POST on Same URL?
+If there are GET and POST handlers for the same URL, it is differentiated based on the specified HTTP request type.
+
+**Example:**
+
+This HTML form does a **POST** request to the URL `localhost:8080/test`.
+```html
+<form action="/test" method="post">
+    <input type="text" name="data">
+    <button type="submit">Submit</button>
+</form>
+```
+When the form is submitted, it should run the `processForm()` method under the `PostMapping("/test")` annotation as we are doing a **POST** request. The method under `@GetMapping` would run if we were to click a link that brought us to `localhost:8080/test` or if we were to directly type out the URL.
+```java
+@Controller
+public class TestController {
+
+    // This will handle the GET request to localhost:8080/test
+    @GetMapping("/test")
+    public String showForm() {
+        return "formPage";  // loads formPage.html
+    }
+
+    // This will handle the POST request to localhost:8080/test
+    @PostMapping("/test")
+    public String processForm(@RequestParam String data) {
+        // Process the form data here
+        return "resultPage";  // load resultPage.html
+    }
+}
+```
