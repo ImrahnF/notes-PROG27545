@@ -9,7 +9,7 @@ The repository contains a Springboot application that attempts to implement the 
   - Controllers are responsible for taking user inputs and processing it using the model and then returning a view (HTML pages).
 
 - `@GetMapping("/")`
-  - This annotation is used to handle **HTTP GET** requests. In this case, it will run the moethod when it is at the default/base url `localhost:8080/`. 
+  - This annotation is used to handle **HTTP GET** requests. In this case, it will run the method when it is at the default/base url `localhost:8080/`. 
   - Often used for fetching data or rendering HTML views/pages.
   - At the end of the method under the `GetMapping("/")`, it runs `return "index"` which tells the view to load the `index.html` page,
 
@@ -24,8 +24,8 @@ The repository contains a Springboot application that attempts to implement the 
 These annotations are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
 
-## Return Statements in Annotations
-Under `@GetMapping` and `@PostMapping`, there are methods that eventually return something. 
+## Return Statements in Annotation Methods
+Under `@GetMapping` and `@PostMapping`, there are methods that eventually return something:
 ### `return "index"`
 ```java
 @GetMapping("/")
@@ -34,7 +34,7 @@ public String showTasks(...)
   return "index"; 
 }
 ```
-This is used to specify which view/template (in this case, an HTML file) to render when the method under `GetMapping("/")` is called. Since this line runs when the user is at the base/default URL, it returns `"index"` which corresponds to the `"index.html"` file in the `templates/` folder.
+This is used to specify which view/template (in this case, an HTML file) to render when the method under `GetMapping("/")` is called. Since this line runs when the user is at the base/default URL, it returns `"index"` which corresponds to the `"index.html"` file in the `templates/` folder located [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/tree/main/src/TodoListApplication/src/main/resources/templates).
 
 What this basically means in terms of **this project** is that when the user is at the URL `localhost:8080/`, it runs the `showTasks()` method that eventually returns `"index"` to load/render the `index.html` page.
 
