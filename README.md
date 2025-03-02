@@ -9,7 +9,7 @@ The repository contains a Springboot application that attempts to implement the 
   - Controllers are responsible for taking user inputs and processing it using the model and then returning a view (HTML pages).
 
 - `@GetMapping("/")`
-  - This annotation is used to handle **HTTP GET** requests. In this case, it will run the moethod when it is at the default/base url `localhost:8080/`. 
+  - This annotation is used to handle **HTTP GET** requests. In this case, it will run the method when it is at the default/base url `localhost:8080/`. 
   - Often used for fetching data or rendering HTML views/pages.
   - At the end of the method under the `GetMapping("/")`, it runs `return "index"` which tells the view to load the `index.html` page,
 
@@ -23,6 +23,88 @@ The repository contains a Springboot application that attempts to implement the 
 
 These annotations are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
+
+## Annotations in Method Arguments
+### (GET) Requests With `@RequestParam` and `Model`
+Using `@RequestParam` + `Model` in a GET request reads data from the URL directly and stores it in a **model**. This is done only once and data does **not persist** across requests.
+
+**Example:** User types in URL or clicks link directed to `localhost:8080/main?data=hello`
+```java
+@GetMapping("/main")
+public String mainPage(@RequestParam("data") String data, Model model) {
+    model.addAttribute("message", data);
+    return "main";
+}
+```
+The controller reads the `data=hello` and adds it as an attribute to `message`, letting `message` be equal to `hello` and `main.html` is loaded. This means the `message` value (`hello`) is available to be used in the `main.html` view.
+
+- It only works if "data" exists in the **URL query**.
+- It **does not persist** across requests; it's just sent to the view.
+
+### (GET) Requests With `@RequestParam` and `HttpSession`
+Same as before, but using a `@RequestParam` + `HttpSession` now stores the value in a **session**, making it persistent.
+
+**Example:** Request URL `localhost:8080/main?data=hello`
+```java
+@GetMapping("/main")
+public String mainPage(@RequestParam("data") String data, HttpSession session) {
+    session.setAttribute("savedData", data);
+    return "main";
+}
+```
+The controller reads the URL again, saves the `data` into the **session** instead of a **model**. Now, whenever another page is loaded, the `savedData` value (`hello`) will still persist until the session ends.
+- It still requires data in the URL initially, but then it gets stored in the session.
+- The **data persists** until the session **expires** or is **cleared**.
+
+### (POST) Requests With `@RequestParam` and `Model`
+Using `@RequestParam` + `Model` in a **POST** request **does not** read data from the URL. Instead, it only looks at the **request body** (such as form data).
+```java
+@PostMapping("/main")
+public String handlePost(@RequestParam("data") String data, Model model) {
+    model.addAttribute("message", data);
+    return "main";
+}
+```
+Trying to open the URL `localhost:8080/main?data=hello`, the method will **NOT** run. Instead, the form must send data using **POST**. Below is an example HTML form:
+```html
+<form action="/main" method="post">
+    <input type="text" name="data">
+    <button type="submit">Submit</button>
+</form>
+```
+
+This form submits the contents of the **textbox input** with the name `data` in the **request body**. This is then handled by the `@PostMapping` controller above.
+- **GET** and **POST** are completely separate: You can have both on the same URL, but they won’t interfere.
+- **POST** ignores URL parameters and only reads from the request body. In this case, it reads `data`.
+
+### (POST) Requests With `@RequestParam` and `HttpSession`
+Using `@RequestParam` + `HttpSession` in a **POST** is the same as the previous example, but it just stores it in a session, making it persistent.
+```java
+@PostMapping("/main")
+public String handlePost(@RequestParam("data") String data, HttpSession session) {
+    session.setAttribute("savedData", data);
+    return "redirect:/main";
+}
+```
+
+### How Does `@SessionAttribute` Work?
+This annotation does **NOT** read from the **URL** or **Request Body**. It only reads from **existing session data**.
+**Example:**
+```java
+@GetMapping("/dashboard")
+public String dashboard(@SessionAttribute(name = "savedData", required = false) String savedData, Model model) {
+    model.addAttribute("message", savedData);
+    return "dashboard";
+}
+```
+(In this example, we could have used either `Model` or `HttpSession`. )
+
+
+This example assumes that there is existing **session data** (`savedData`), set by a previously manipulated `HttpSession`. If the `savedData` does not exist, it returns `null` (or causes an error if `required = true`).
+
+### Summary:
+Summary
+
 
 ## Return Statements in Annotations
 Under `@GetMapping` and `@PostMapping`, there are methods that eventually return something. 
