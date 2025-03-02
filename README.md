@@ -30,10 +30,12 @@ The repository contains a Springboot application that attempts to implement the 
   - The method under the mapping also returns the `"redirect:/"` which simply redirects the user back to the main page to display the updated list.
 
 - `RequestMapping("/test")`
-  - t
+  - WORK ON THIS
+- `@Bean`
+  - WORK ON THIS
 
 
-These annotations are implemented in the 
+*Most* of these annotations are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
 
 ## Annotations in Method Arguments
@@ -234,4 +236,14 @@ public class TestController {
 ```
 The `@RequestParam` annotation looks for a request parameter named `data` which matches the form's `name="data"`. This is passed as the `data` argument in the `processForm()` method which then can be used as needed.
 
+## HTTP Session Listeners and Events
+Work on this
+
+## Loggers
+Work on this
+
 # Front-End
+Work on this
+
+# Game Page (extra - added onto the original project)
+Work on this
