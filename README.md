@@ -1,8 +1,16 @@
-# Springbok Application and Notes
+# Springboot Application - Notes
 This repository serves as a learning resource for me to enhance my comprehension of the course `PROG27545 Web Application Design & Implementation`, which tries to cover weeks 1-7 (inclusive).
 
-The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes examples that refer to the project for a better understanding. 
+The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes some examples that refer to either the project or external examples for a better understanding. 
 
+# TODO (for the README):
+- Work on `RequestMapping` under **Back-end > Annotations**.
+- Work on **Front-end** notes.
+- Cover **Loggers**
+- Cover **HttpSession Listeners and Events**
+- `@Bean`
+
+# Back-end
 ## Annotations:
 - `@Controller`
   - This annotation tells Spring that the class will handle **HTTP Requests**. It is responsible for returning views, such as html files (index.html). It is marked as a **controller** in the ***Model-View Controller (MVC)*** Architecture.
@@ -20,6 +28,10 @@ The repository contains a Springboot application that attempts to implement the 
   <form action="/add" method="POST">
   ``` 
   - The method under the mapping also returns the `"redirect:/"` which simply redirects the user back to the main page to display the updated list.
+
+- `RequestMapping("/test")`
+  - t
+
 
 These annotations are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
@@ -221,3 +233,5 @@ public class TestController {
 }
 ```
 The `@RequestParam` annotation looks for a request parameter named `data` which matches the form's `name="data"`. This is passed as the `data` argument in the `processForm()` method which then can be used as needed.
+
+# Front-End
