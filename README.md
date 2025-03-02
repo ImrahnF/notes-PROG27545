@@ -6,17 +6,9 @@ The repository contains a Springboot application that attempts to implement the 
 The project’s implementation details will be explicitly mentioned. If not, they’ll be provided as a study guide or detailed note.
 
 # TODO (for the README):
-- Work on **Front-end** notes.
-- `@Bean` (?)
+- Explain what a `@Bean` is and how it is used.
+- Work on **Front-End** notes.
 - Add extra things to the application (eg. a game section)
-
-# Table of Contents:
-- [Back-End](#back-end)
-- [Annotations](##Annotations)
-- [HTTP Sessions & Models](#http-sessions--models)
-- [HTTP Request Types](#http-request-types)
-- [SLF4J Logging](#slfj-logging)
-- [Game Page](#game-page)
 
 # Back-end
 ## Annotations:
