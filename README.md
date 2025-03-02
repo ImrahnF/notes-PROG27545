@@ -1,5 +1,5 @@
 # Springbok Application and Notes
-This repository serves as a learning resource for me to enhance my comprehension of the course `PROG27545 Web Application Design & Implementation`, which covers approximately weeks 1-7 (inclusive).
+This repository serves as a learning resource for me to enhance my comprehension of the course `PROG27545 Web Application Design & Implementation`, which tries to cover weeks 1-7 (inclusive).
 
 The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes examples that refer to the project for a better understanding. 
 
