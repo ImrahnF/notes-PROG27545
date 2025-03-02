@@ -4,11 +4,11 @@ This repository serves as a learning resource for me to enhance my comprehension
 The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes some examples that refer to either the project or external examples for a better understanding. 
 
 # TODO (for the README):
-- Work on `RequestMapping` under **Back-end > Annotations**.
 - Work on **Front-end** notes.
 - Cover **Loggers**
 - Cover **HttpSession Listeners and Events**
 - `@Bean`
+- Add extra things to the application (eg. a game section)
 
 # Back-end
 ## Annotations:
