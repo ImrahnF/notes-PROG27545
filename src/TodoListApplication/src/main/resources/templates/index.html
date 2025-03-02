@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>To-do List</title>
 </head>
 <body>
-<h1>Hello index.html</h1>
+    <h1>To-do List</h1>
+    <!-- Form -->
+    <form action="/add" method="post">
+        <input type="text" name="description" placeholder="Enter task description" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul>
+        <!-- Loop through tasks and display them -->
+        <li th:each="task, iterStat : ${tasks}">
+            <span th:text="${task.description}"></span>
+
+            <!-- Show completion status -->
+            <span th:if="${task.isCompleted()}"> ✓</span>
+
+            <!-- Buttons to mark complete/incomplete -->
+            <form action="/complete" method="post" style="display:inline;">
+                <input type="hidden" name="index" th:value="${iterStat.index}">
+                <button type="submit" th:if="${!task.isCompleted()}">Mark Complete</button>
+            </form>
+
+            <form action="/incomplete" method="post" style="display:inline;">
+                <input type="hidden" name="index" th:value="${iterStat.index}">
+                <button type="submit" th:if="${task.isCompleted()}">Mark Incomplete</button>
+            </form>
+        </li>
+    </ul>
+
+
 </body>
 </html>
