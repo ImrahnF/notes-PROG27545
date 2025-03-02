@@ -20,19 +20,52 @@ The repository contains a Springboot application that attempts to implement the 
   - This annotation is used to handle **HTTP GET** requests. In this case, it will run the method when it is at the default/base url `localhost:8080/`. 
   - Often used for fetching data or rendering HTML views/pages.
   - At the end of the method under the `GetMapping("/")`, it runs `return "index"` which tells the view to load the `index.html` page,
+  ```java
+  // Once the URL is at localhost:8080/
+  @GetMapping("/")
+  public String showTasks() {
+    // Do stuff
+    return "index"; // Load the index.html page
+  }
+  ```
 
 - `PostMapping("/add")`
   - This annotation is used to handle **HTTP POST** requests, often done through submitting data to the server (such as a form submission). In this case, it can be imagined as filling out a task form and submitting it to the server to add it.
-  - The `/add` URL is specified in an HTML form's `action` attribute and specifies that it is a `POST` request. *Below is an HTML form*:
+  - The `/test` URL is specified in an HTML form's `action` attribute and specifies that it is a `POST` request. *Below is an HTML form*:
   ```html
-  <form action="/add" method="POST">
+  <form action="/test" method="POST">
   ``` 
+  The `postRequestMethod()` method will then run since we have done a **POST** request to the page `/test`.
+  ```java
+  @PostMapping("/test")
+  public String postRequestMethod() { // Can only be called through a POST request
+        // Do stuff
+        return "redirect:/"; // Redirect back to main page
+    }
+  ```
   - The method under the mapping also returns the `"redirect:/"` which simply redirects the user back to the main page to display the updated list.
 
-- `RequestMapping("/test")`
-  - WORK ON THIS
+- `RequestMapping("/main")`
+  - This annotation is defined at the **class level**. With this, all methods in the controller will have the prefix of `/main`. For example:
+   ```java
+   @Controller
+   @RequestMapping("/main") // Every controller will start at localhost:8080/main/
+   public class ControllerClass {
+    @GetMapping("/adam") // URL: localhost:8080/main/adam
+    public String method1() {
+      // Do stuff
+      return "page1"
+    }
+
+    @PostMapping("/eve") // URL: localhost:8080/main/eve
+    public String method2() {
+      // Do stuff
+      return "page2"
+    }
+   }
+   ```
 - `@Bean`
-  - WORK ON THIS
+  - *WORK ON THIS*
 
 
 *Most* of these annotations are implemented in the 
