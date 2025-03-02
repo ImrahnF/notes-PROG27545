@@ -3,6 +3,8 @@ This repository serves as a learning resource for me to enhance my comprehension
 
 The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes some examples that refer to either the project or external examples for a better understanding. 
 
+The project’s implementation details will be explicitly mentioned. If not, they’ll be provided as a study guide or detailed note.
+
 # TODO (for the README):
 - Work on **Front-end** notes.
 - Cover **Loggers**
@@ -335,10 +337,24 @@ public class HttpSessionConfig {
 }
 ```
 
-
-
 ## SLF4J Logging
 **SLF4J** is an abstract logging framework that allows you to change the underlying logging framework without actually modifying the application code.
+
+### Creating a Logger
+In this example, we will create a Logger instance tied to the `HttpSessionConfig.java` class:
+```java
+private final Logger log = LoggerFactory.getLogger(HttpSessionConfig.class);
+```
+
+Any log statement in this class will be logged using this instance. This is especially useful in debugging as we can see where the logs are coming from.
+
+
+
+### Logging Methods
+- `log.trace()`: This log level is used for very detailed information that is typically useful only for debugging or tracking code execution at a very granular level (e.g., when a session is created or destroyed).
+- `log.debug()`: This log level is used for general debugging information that provides useful context but isn't necessarily required at all times. It's commonly used for logging details like session IDs or attribute values.
+- `log.info()`:  Used for general informational messages.
+- `log.error()`: Used for logging errors.
 
 # Front-End
 Work on this
