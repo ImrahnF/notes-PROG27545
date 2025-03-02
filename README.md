@@ -270,6 +270,8 @@ public class TestController {
 The `@RequestParam` annotation looks for a request parameter named `data` which matches the form's `name="data"`. This is passed as the `data` argument in the `processForm()` method which then can be used as needed.
 
 ## HTTP Session Listeners and Events
+The following listeners are created in a custom configuration class named `HttpSessionConfig.java` which is often located in the `config` folder. These are wrapped by the `@Configuration` annotation with each listener being annotated by `@Bean`.
+
 ### HttpSessionListener:
 **Purpose:** these track when an HTTP session is created or destroyed. 
 
@@ -333,10 +335,10 @@ public class HttpSessionConfig {
 }
 ```
 
-Each of these 
 
-## Loggers
-Work on this
+
+## SLF4J Logging
+**SLF4J** is an abstract logging framework that allows you to change the underlying logging framework without actually modifying the application code.
 
 # Front-End
 Work on this
