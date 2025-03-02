@@ -97,7 +97,7 @@ public String dashboard(@SessionAttribute(name = "savedData", required = false) 
     return "dashboard";
 }
 ```
-(In this example, we could have used either `Model` or `HttpSession`. )
+`@SessionAttribute` is a shortcut for retrieving session attributes without explicitly calling `session.getAttribute`.
 
 
 This example assumes that there is existing **session data** (`savedData`), set by a previously manipulated `HttpSession`. If the `savedData` does not exist, it returns `null` (or causes an error if `required = true`).
@@ -119,6 +119,7 @@ This example assumes that there is existing **session data** (`savedData`), set 
   - Reads form data and is stored in the **session**, allowing persistence across requests.
 - `SessionAttribute`
   - Reads **existing session data**, continuing data persistence. 
+  - Just a shortcut for accessing session data.
 
 
 ## Return Statements in Annotations
