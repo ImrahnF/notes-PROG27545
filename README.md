@@ -270,7 +270,70 @@ public class TestController {
 The `@RequestParam` annotation looks for a request parameter named `data` which matches the form's `name="data"`. This is passed as the `data` argument in the `processForm()` method which then can be used as needed.
 
 ## HTTP Session Listeners and Events
-Work on this
+### HttpSessionListener:
+**Purpose:** these track when an HTTP session is created or destroyed. 
+
+**Methods:**
+- `sessionCreated(HttpSessionEvent se)`: called when a session is created (eg. user logs in)
+- `sessionDestroyed(HttpSessionEvent se)`: called when a session is destroyed (eg. user logs out)
+
+```java
+@Configuration
+public class HttpSessionConfig {
+
+    @Bean
+    public HttpSessionListener httpSessionListener() {
+        return new HttpSessionListener() {
+
+            @Override
+            public void sessionCreated(HttpSessionEvent se) {
+                // This method will be called when session created
+            }
+
+            @Override
+            public void sessionDestroyed(HttpSessionEvent se) {
+                // This method will be automatically called when session destroyed
+            }
+        };
+    }
+}
+```
+
+### HttpSessionAttributeListener:
+**Purpose:** Tracks when attributes in the session are added, removed, or replaced.
+
+**Methods:**
+- `attributeAdded(HttpSessionBindingEvent se)`: called when an attribute is added to the session.
+- `attributeRemoved(HttpSessionBindingEvent se)`: called when an attribute is removed from the session.
+- `attributeReplaced(HttpSessionBindingEvent se)`: called when an attribute is replaced in the session.
+
+
+```java
+@Configuration
+public class HttpSessionConfig {
+    @Bean
+    public HttpSessionAttributeListener httpSessionAttributeListener() {
+        return new HttpSessionAttributeListener() {
+            @Override
+            public void attributeAdded(HttpSessionBindingEvent se) {
+                // This method will be automatically called when session attribute added
+            }
+
+            @Override
+            public void attributeRemoved(HttpSessionBindingEvent se) {
+                // This method will be automatically called when session attribute removed
+            }
+
+            @Override
+            public void attributeReplaced(HttpSessionBindingEvent se) {
+                // This method will be automatically called when session attribute replace
+            }
+        };
+    }
+}
+```
+
+Each of these 
 
 ## Loggers
 Work on this
