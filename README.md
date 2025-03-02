@@ -103,7 +103,22 @@ public String dashboard(@SessionAttribute(name = "savedData", required = false) 
 This example assumes that there is existing **session data** (`savedData`), set by a previously manipulated `HttpSession`. If the `savedData` does not exist, it returns `null` (or causes an error if `required = true`).
 
 ### Summary:
-Summary
+- `@RequestParam` in `@GetMapping`:
+  - Reads data from URL (eg. `/data=hello`)
+  - Does **NOT** persist across multiple requests and is a one-time read.
+- `@RequestParam` + `Model` in `@GetMapping`:
+  - Reads data from URL (eg. `/data=hello`)
+  - Data is only passed to a view
+- `@RequestParam` + `HttpSession` in `@GetMapping`:
+  - Reads data from URL (eg. `/data=hello`) and is **stored in a session**.
+  - Data persists
+- `RequestParam` in `@PostMapping`
+  - Reads data from a form submission with a **POST** request (not from the URL).
+  - Does not persist - just reads **POST** request.
+- `RequestParam` + `HttpSession` in `@PostMapping`
+  - Reads form data and is stored in the **session**, allowing persistence across requests.
+- `SessionAttribute`
+  - Reads **existing session data**, continuing data persistence. 
 
 
 ## Return Statements in Annotations
