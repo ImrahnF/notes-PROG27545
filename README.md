@@ -10,6 +10,14 @@ The project’s implementation details will be explicitly mentioned. If not, the
 - `@Bean` (?)
 - Add extra things to the application (eg. a game section)
 
+# Table of Contents:
+- [Back-End](#back-end)
+- [Annotations](##Annotations)
+- [HTTP Sessions & Models](#http-sessions--models)
+- [HTTP Request Types](#http-request-types)
+- [SLF4J Logging](#slfj-logging)
+- [Game Page](#game-page)
+
 # Back-end
 ## Annotations:
 - `@Controller`
