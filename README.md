@@ -145,7 +145,7 @@ public String addTask(...)
   return "redirect:/"; 
 }
 ```
-Although similar to the previous return statement, this tells Spring to **redirect** instead of rendering a page. In this case, it redirects to the default URL. After the redirect, it will then be handled by the previous method under `@GetMapping("/")`.
+Although similar to the previous return statement, this tells Spring to **redirect** instead of rendering a page. In this case, it redirects to the default URL. After the redirect, it will then be handled by the previous method under `@GetMapping("/")`. We could also edit this to `redirect:/main`.
 
 These return statements are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
