@@ -7,9 +7,7 @@ The project’s implementation details will be explicitly mentioned. If not, the
 
 # TODO (for the README):
 - Work on **Front-end** notes.
-- Cover **Loggers**
-- Cover **HttpSession Listeners and Events**
-- `@Bean`
+- `@Bean` (?)
 - Add extra things to the application (eg. a game section)
 
 # Back-end
@@ -348,13 +346,37 @@ private final Logger log = LoggerFactory.getLogger(HttpSessionConfig.class);
 
 Any log statement in this class will be logged using this instance. This is especially useful in debugging as we can see where the logs are coming from.
 
-
-
 ### Logging Methods
 - `log.trace()`: This log level is used for very detailed information that is typically useful only for debugging or tracking code execution at a very granular level (e.g., when a session is created or destroyed).
 - `log.debug()`: This log level is used for general debugging information that provides useful context but isn't necessarily required at all times. It's commonly used for logging details like session IDs or attribute values.
 - `log.info()`:  Used for general informational messages.
 - `log.error()`: Used for logging errors.
+
+**Examples of Logging:**
+
+This example in `HttpSessionAttributeListener` utilizing `log.trace()` and `log.debug`: 
+
+```java
+@Configuration
+public class HttpSessionConfig {
+    // Create logger instance tied to the config class
+    private final Logger log = LoggerFactory.getLogger(HttpSessionConfig.class);
+
+    @Bean
+    public HttpSessionAttributeListener httpSessionAttributeListener() {
+        return new HttpSessionAttributeListener() {
+            @Override
+            public void attributeAdded(HttpSessionBindingEvent se) {
+                // This method will be automatically called when session attribute added
+                log.trace("attributeAdded() is called");
+                log.debug("sessionId = " + se.getSession().getId());
+                log.debug("addedAttributeName = " + se.getName());
+                log.debug("addedAttributeValue = " + se.getValue());
+            }
+        };
+    }
+}
+```
 
 # Front-End
 Work on this
