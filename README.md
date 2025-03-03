@@ -9,7 +9,7 @@ The repository covers many concepts (which may be separate from the todo list). 
 - Explain what a `@Bean` is and how it is used.
 - Work on **Front-End** notes.
 
-# Back-end
+# Model/Controller (MVC)
 ## Annotations:
 - `@Controller`
   - This annotation tells Spring that the class will handle **HTTP Requests**. It is responsible for returning views, such as html files (index.html). It is marked as a **controller** in the ***Model-View Controller (MVC)*** Architecture.
@@ -384,5 +384,5 @@ public class HttpSessionConfig {
 }
 ```
 
-# Front-End/View
+# View (MVC)
 Work on this
