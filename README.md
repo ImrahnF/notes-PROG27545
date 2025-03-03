@@ -457,7 +457,10 @@ A proper implementation is shown in the [repository](https://github.com/ImrahnF/
 
 ### How This Works:
 1. We can use an **unordered** list (`<ul>`) to display each task in the list.
-2. `th:each="task : ${tasks}"` loops through each item in 
+1. The **attribute** (`tasks`) we added to our **model** in `TaskController.java` when we loaded the page `index.html` can now be accessed directly.
+2. `th:each="task : ${tasks}"` loops through each item in the **attribute**
 3. Replace the text in each list element (`<li>`) with the description of  the task object (`task.description`).
+
+The `Task` object can be viewed [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/domain/Task.java)
 
 This is an extremely simplified version of what is implemented in the actual todo list which can be seen [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/resources/templates/index.html)
