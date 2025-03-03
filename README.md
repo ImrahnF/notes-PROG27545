@@ -7,7 +7,6 @@ The repository covers many concepts (which may be separate from the todo list). 
 
 # TODO (for the README):
 - Explain what a `@Bean` is and how it is used.
-- Work on **Front-End** notes.
 
 # Model/Controller (MVC)
 ## Annotations:
@@ -383,6 +382,82 @@ public class HttpSessionConfig {
     }
 }
 ```
-
 # View (MVC)
-Work on this
+A Springboot application uses the MVC architecture. The **View** typically refers to the Thymeleaf template but can refer to other APIs. In essence, the **View** is what the user **sees**.
+## `/templates` and `/static` Directories in Springboot
+A Springboot application automatically looks for **View (HTML files)** and **Static assets (CSS, JS, images)** in specific directories.
+
+### 📁 `/templates` Directory
+- Contains **Thymeleaf** templates (HTML files)
+- Springboot looks here automatically for **Views** when a controller returns a template name
+```
+src/main/resources/templates/
+ ├── index.html
+ ├── task-list.html
+ ├── about.html
+```
+### 📁 `/static` Directory
+- This directory simply stores **static** files, such as `.css`, `.js`, and images (`.jpg`, `.png`).
+- These files in `/static` are **accessible via URLs** (e.g. `/static/style.css`)
+```
+src/main/resources/static/
+ ├── css/
+ │    ├── style.css
+ ├── js/
+ │    ├── script.js
+ ├── images/
+      ├── logo.png
+```
+In this example, `style.css` can be linked in the HTML:
+```html
+<link rel="stylesheet" href="/css/style.css">
+```
+## How the View Works
+1. A user requests a page/URL (eg. `/tasks`)
+2. The **Controller** (in our example, `TaskController.java` processes that request and retrieves some data (`Model`, `HttpSession`, etc..)
+3. The **Controller** returns a **view** name (e.g. `"index"`) which corresponds to a page located in `/templates`.
+4. The **view** is rendered with the data passed (eg. `Model`, `HttpSession`)
+
+**Rendering a View** (`TaskController.java`)
+```java
+@Controller
+public class TaskController {
+    @GetMapping("/")
+    public String showTasks(Model model, @SessionAttribute(name = "tasks", required = false) List<Task> tasks) {
+        if (tasks == null) {
+            tasks = new ArrayList<>();
+        }
+        model.addAttribute("tasks", tasks);
+        return "index"; // Thymelef template to return index.html
+    }
+```
+A proper implementation is shown in the [repository](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
+
+### How This Works:
+1. `@GetMapping("/")`: we run `showTasks()` once we are at the base URL (`localhost:8080/`).
+2. We define `Model` and search our current **session** for an attribute named `tasks`.
+3. Since the `tasks` attribute is a **List** of `Task` objects, we check if it is not null. Create a new list if it is.
+4. We take our session data (`tasks`) give `model` a new attribute from said session data.
+5. `return "index"` loads the HTML page (`index.html`).
+
+**View** (`index.html` at `/templates/index.html`)
+```html
+<!DOCTYPE html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h2>Task List</h2>
+    <ul>
+        <li th:each="task : ${tasks}" th:text="${task.description}"></li>
+    </ul>
+</body>
+</html>
+```
+
+### How This Works:
+1. We can use an **unordered** list (`<ul>`) to display each task in the list.
+2. `th:each="task : ${tasks}"` loops through each item in 
+3. Replace the text in each list element (`<li>`) with the description of  the task object (`task.description`).
+
+This is an extremely simplified version of what is implemented in the actual todo list which can be seen [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/resources/templates/index.html)
