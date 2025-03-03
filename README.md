@@ -5,6 +5,8 @@ The repository contains a Springboot application that attempts to implement the 
 
 The repository covers many concepts which may not be covered in the To-do List.
 
+This is assuming that a project is created in Java (17), Gradle - Groovy, with the "Spring Web" and "Thymeleaf" dependencies.
+
 # Table of Contents
 - [Model/Controller (MVC)](#modelcontroller-mvc)
   - [Annotations](#annotations)
