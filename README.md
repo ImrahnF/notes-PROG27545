@@ -5,6 +5,10 @@ The repository contains a Springboot application that attempts to implement the 
 
 The repository covers many concepts (which may be separate from the todo list). However, there may be some references to the todo list.
 
+# Table of Contents
+- [Model/Controller](https://github.com/ImrahnF/todo-list-notes-PROG27545/edit/main/README.md#modelcontroller-mvc)
+  - [Annotations](https://github.com/ImrahnF/todo-list-notes-PROG27545/edit/main/README.md#modelcontroller-mvc)
+  - [Annotations in Method Arguments](https://github.com/ImrahnF/todo-list-notes-PROG27545/edit/main/README.md#modelcontroller-mvc)
 # Model/Controller (MVC)
 ## Annotations:
 - `@Controller`
