@@ -6,8 +6,17 @@ The repository contains a Springboot application that attempts to implement the 
 The repository covers many concepts (which may be separate from the todo list). However, there may be some references to the todo list.
 
 # Table of Contents
+- [Model/Controller (MVC)](#modelcontroller-mvc)
+  - [Annotations](#annotations)
+  - [Annotations in Method Arguments](#annotations-in-method-arguments)
+  - [Return Statements in Annotations](#return-statements-in-annotations)
+  - [HTTP Sessions and Models](#http-sessions--models)
+  - [HTTP Request Types](#http-request-typess)
+  - [HTTP Session Listeners and Events](#http-session-listeners-and-events)
+  - [Logging](#slf4j-logging)
 - [View (MVC)](#view-mvc)
   - [Directories for the View](#view-mvc)
+  - [How the View Works](#how-the-view-works)
 
 # Model/Controller (MVC)
 ## Annotations:
