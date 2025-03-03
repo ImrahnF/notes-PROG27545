@@ -5,9 +5,6 @@ The repository contains a Springboot application that attempts to implement the 
 
 The repository covers many concepts (which may be separate from the todo list). However, there may be some references to the todo list.
 
-# TODO (for the README):
-- Explain what a `@Bean` is and how it is used.
-
 # Model/Controller (MVC)
 ## Annotations:
 - `@Controller`
