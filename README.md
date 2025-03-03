@@ -1,9 +1,9 @@
 # Springboot Application - Notes
 This repository serves as a learning resource for me to enhance my comprehension of the course `PROG27545 Web Application Design & Implementation`, which tries to cover weeks 1-7 (inclusive).
 
-The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes some examples that refer to either the project or external examples for a better understanding. 
+The repository contains a Springboot application that attempts to implement the concepts learned in class into a "To-do List". It provides explanations along the way and includes some examples that refer to either the project or external examples for a better understanding. 
 
-The repository covers many concepts (which may be separate from the todo list). However, there may be some references to the todo list.
+The repository covers many concepts which may not be covered in the To-do List.
 
 # Table of Contents
 - [Model/Controller (MVC)](#modelcontroller-mvc)
