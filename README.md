@@ -8,7 +8,6 @@ The project’s implementation details will be explicitly mentioned. If not, the
 # TODO (for the README):
 - Explain what a `@Bean` is and how it is used.
 - Work on **Front-End** notes.
-- Add extra things to the application (eg. a game section)
 
 # Back-end
 ## Annotations:
@@ -378,8 +377,5 @@ public class HttpSessionConfig {
 }
 ```
 
-# Front-End
-Work on this
-
-# Game Page (extra - added onto the original project)
+# Front-End/View
 Work on this
