@@ -84,6 +84,8 @@ This is assuming that a project is created in Java (17), Gradle - Groovy, with t
 - `@Bean`
   - *WORK ON THIS*
 
+- `@Configuration`
+  - *WORK ON THIS*
 
 *Most* of these annotations are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
