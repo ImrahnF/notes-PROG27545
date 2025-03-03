@@ -14,6 +14,13 @@ The project’s implementation details will be explicitly mentioned. If not, the
 - `@Controller`
   - This annotation tells Spring that the class will handle **HTTP Requests**. It is responsible for returning views, such as html files (index.html). It is marked as a **controller** in the ***Model-View Controller (MVC)*** Architecture.
   - Controllers are responsible for taking user inputs and processing it using the model and then returning a view (HTML pages).
+  - This annotation is defined at the **class** level.
+  ```java
+  @Controller
+  public class TaskController {
+    // ..Code
+  }
+   ```
 
 - `@GetMapping("/")`
   - This annotation is used to handle **HTTP GET** requests. In this case, it will run the method when it is at the default/base url `localhost:8080/`. 
