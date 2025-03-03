@@ -5,6 +5,10 @@ The repository contains a Springboot application that attempts to implement the 
 
 The repository covers many concepts (which may be separate from the todo list). However, there may be some references to the todo list.
 
+# Table of Contents
+- [View (MVC)](#view-mvc)
+  - [Directories for the View](#view-mvc)
+
 # Model/Controller (MVC)
 ## Annotations:
 - `@Controller`
