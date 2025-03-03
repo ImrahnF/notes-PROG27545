@@ -3,7 +3,7 @@ This repository serves as a learning resource for me to enhance my comprehension
 
 The repository contains a Springboot application that attempts to implement the concepts learned in class. It provides explanations along the way and includes some examples that refer to either the project or external examples for a better understanding. 
 
-The project’s implementation details will be explicitly mentioned. If not, they’ll be provided as a study guide or detailed note.
+The repository covers many concepts (which may be separate from the todo list). However, there may be some references to the todo list.
 
 # TODO (for the README):
 - Explain what a `@Bean` is and how it is used.
