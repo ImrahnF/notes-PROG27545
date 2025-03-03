@@ -11,7 +11,7 @@ The repository covers many concepts (which may be separate from the todo list). 
   - [Annotations in Method Arguments](#annotations-in-method-arguments)
   - [Return Statements in Annotations](#return-statements-in-annotations)
   - [HTTP Sessions and Models](#http-sessions--models)
-  - [HTTP Request Types](#http-request-typess)
+  - [HTTP Request Types](#http-request-types)
   - [HTTP Session Listeners and Events](#http-session-listeners-and-events)
   - [Logging](#slf4j-logging)
 - [View (MVC)](#view-mvc)
