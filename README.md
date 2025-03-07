@@ -82,10 +82,23 @@ This is assuming that a project is created in Java (17), Gradle - Groovy, with t
    }
    ```
 - `@Bean`
-  - *WORK ON THIS*
+  - Marking a method as `@Bean` essentially tells spring to treat the object returned by the method as a Spring-managed bean. The object returned by `@Bean` means spring will create the object, take care of the lifecycle, dependencies, and other aspects of the object, allowing it to be injected wherever it needs to be.
+  - These are typically defined within a **Configuration** class (annotated by `@Configuration`).
+  ```java
+  @Configuration
+   public class AppConfig {
+      @Bean
+      public MyService myService() {
+          return new MyService();
+      }
+  }
+   ```
 
 - `@Configuration`
-  - *WORK ON THIS*
+  - A **configuration** class in Spring is a class annotated with `@Configuration` and is used to define **beans** and configure a spring's application context.
+  - It can contain methods annotated with `@Bean` to specify the beans that Spring should manage.
+
+
 
 *Most* of these annotations are implemented in the 
 `TaskController.java` file [here](https://github.com/ImrahnF/todo-list-notes-PROG27545/blob/main/src/TodoListApplication/src/main/java/sheridan/omrahn/todolistapplication/controller/TaskController.java).
